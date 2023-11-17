@@ -148,8 +148,21 @@ function getBookByTitle(title) {
       });
        
   }
-
 // Get all books based on title
+/*public_users.get('/title/:title',function (req, res) {
+    let booksbytitle = [];
+    let isbns = Object.keys(books);
+    isbns.forEach((isbn) => {
+      if(books[isbn]["title"] === req.params.title) {
+        booksbytitle.push({"isbn":isbn,
+                            "title":books[isbn]["title"],
+                            "author":books[isbn]["author"],
+                            "reviews":books[isbn]["reviews"]});
+      }
+    });
+    res.send(JSON.stringify({booksbytitle}, null, 4));
+});*/
+// Task 13
 public_users.get('/title/:title',function (req, res) {
     const title= req.params.title;
     const titledetails= getBookByTitle(title)
